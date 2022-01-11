@@ -17,7 +17,7 @@ function TopNav() {
           <MyLink to="/examples/components/">컴포넌트 예시</MyLink>
         </li>
         <li>
-          <MyLink to="/PageBlog/">블로그 페이지</MyLink>
+          <MyLink to="/examples/clock/">시계</MyLink>
         </li>
       </ul>
     </div>
