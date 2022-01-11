@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import DebugStates from 'components/DebugStates';
 import Review from 'components/Review';
 import { useNavigate } from 'react-router-dom';
-import { API_HOST } from 'Constants';
+import { axiosInstance } from 'api/base';
 
 function PageReviewList() {
   const [loading, setLoading] = useState(false);
@@ -19,9 +19,9 @@ function PageReviewList() {
     setLoading(true);
     setError(null);
 
-    const url = `${API_HOST}/shop/api/reviews/`;
+    const url = `/shop/api/reviews/`;
     // Promise 객체
-    axios
+    axiosInstance
       .get(url)
       .then(({ data }) => {
         setReviewList(data);
@@ -37,12 +37,12 @@ function PageReviewList() {
 
   const deleteReview = (deletingReview) => {
     const { id: deletingReviewId } = deletingReview;
-    const url = `${API_HOST}/shop/api/reviews/${deletingReviewId}/`;
+    const url = `/shop/api/reviews/${deletingReviewId}/`;
 
     setLoading(true);
     setError(null);
 
-    axios
+    axiosInstance
       .delete(url)
       .then(() => {
         console.log('삭제 성공');
