@@ -11,6 +11,7 @@ import Clock from 'pages/examples/Clock';
 import useWindowWidth from 'pages/examples/useWindowWidth';
 import CssModule from 'pages/examples/CssModule';
 import CssInJs from 'pages/examples/CssInJs';
+import ContextApiSample from 'pages/examples/ContextApiSample';
 
 function App() {
   const windowWidth = useWindowWidth();
@@ -29,6 +30,11 @@ function App() {
           <Route path="/examples/components/" element={<Components />} />
           <Route path="/examples/css-module/" element={<CssModule />} />
           <Route path="/examples/css-in-js/" element={<CssInJs />} />
+          <Route
+            path="/examples/contextapisample/"
+            element={<ContextApiSample />}
+          />
+          />
         </Routes>
         <hr />
         윈도우 가로크기: {windowWidth}px
