@@ -30,10 +30,10 @@ function App() {
           <Route path="/blog/" element={<PageBlog />} />
 
           <Route path="/news/" element={<PageNewsIndex />} />
-          <Route path="/news/new" element={<PageNewsArticleForm />} />
+          <Route path="/news/new/" element={<PageNewsArticleForm />} />
           <Route path="/news/:articleId/" element={<PageNewsArticleDetail />} />
           <Route
-            path="/news/:articleId/edit"
+            path="/news/:articleId/edit/"
             element={<PageNewsArticleForm />}
           />
 

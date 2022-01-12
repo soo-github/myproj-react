@@ -1,5 +1,6 @@
 import { useApiAxios } from 'api/base';
 import DebugStates from 'components/DebugStates';
+import { useEffect } from 'react';
 import ArticleSummary from './ArticleSummary';
 
 function ArticleList() {
@@ -7,13 +8,19 @@ function ArticleList() {
     '/news/api/articles/',
   );
 
+  useEffect(() => {
+    refetch();
+  }, []);
+
   return (
     <div>
       <h3>뉴스 기사 목록을 보여줄 것입니다.</h3>
       {loading && '로딩 중 ...'}
       {error && '로딩 중 에러가 발생했습니다.'}
       {articleList &&
-        articleList.map((article) => <ArticleSummary article={article} />)}
+        articleList.map((article, index) => (
+          <ArticleSummary article={article} key={index} />
+        ))}
       <DebugStates articleList={articleList} loading={loading} error={error} />
     </div>
   );
