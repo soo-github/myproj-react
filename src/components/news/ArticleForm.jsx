@@ -76,6 +76,8 @@ function ArticleForm({ articleId, handleDidSave }) {
     // );
 
     // immer 4단계
+    // 인자 1개를 받는 함수를 리턴: 원본
+    // 함수(원본) => 변경된 사본을 리턴
     setFieldValues(
       produce((draft) => {
         draft.photo = '';
