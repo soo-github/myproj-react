@@ -45,8 +45,8 @@ function ArticleForm({ articleId, handleDidSave }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // fileValues : 객체(except 파일)
-    // 파일을 업로드 하려면, FormData인스턴스를 써야합니다.
+    // fieldValues : 객체 (except 파일)
+    // 파일을 업로드 하려면, FormData 인스턴스를 써야합니다.
     const formData = new FormData();
     Object.entries(fieldValues).forEach(([name, value]) => {
       if (Array.isArray(value)) {
@@ -110,6 +110,11 @@ function ArticleForm({ articleId, handleDidSave }) {
             name="photo"
             onChange={handleFieldChange}
           />
+          {saveErrorMessages.photo?.map((message, index) => (
+            <p key={index} className="text-xs text-red-400">
+              {message}
+            </p>
+          ))}
         </div>
 
         <div className="my-3">
