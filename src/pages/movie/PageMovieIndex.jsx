@@ -1,5 +1,3 @@
-// 영화 서비스의 메인 페이지
-
 import Button from 'components/Button';
 import PostList from 'components/movie/PostList';
 import { useNavigate } from 'react-router-dom';

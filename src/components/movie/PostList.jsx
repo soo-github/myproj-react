@@ -32,7 +32,7 @@ function PostList() {
         </div>
       )}
 
-      <DebugStates postList={PostList} loading={loading} error={error} />
+      <DebugStates postList={postList} loading={loading} error={error} />
     </div>
   );
 }

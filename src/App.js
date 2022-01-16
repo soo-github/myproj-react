@@ -17,6 +17,8 @@ import PageNewsIndex from 'pages/news/PageNewsIndex';
 import PageNewsArticleDetail from 'pages/news/PagNewsArticleDetail';
 import PageNewsArticleForm from 'pages/news/PageNewsArticleForm';
 import PageMovieIndex from 'pages/movie/PageMovieIndex';
+import PageMoviePostDetail from 'pages/movie/PageMoviePostDetail';
+import PageMoviePostForm from 'pages/movie/PageMoviePostForm';
 
 function App() {
   const windowWidth = useWindowWidth();
@@ -57,6 +59,9 @@ function App() {
           {/* ----------------------------------------------------------------- */}
 
           <Route path="/movie/" element={<PageMovieIndex />} />
+          <Route path="/movie/new/" element={<PageMoviePostForm />} />
+          <Route path="/movie/:postId/" element={<PageMoviePostDetail />} />
+          <Route path="/movie/:postId/edit/" element={<PageMoviePostForm />} />
         </Routes>
         {/* <hr />
         윈도우 가로크기: {windowWidth}px

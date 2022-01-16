@@ -1,12 +1,16 @@
-import { useNavigate } from 'react-router-dom';
+import PostForm from 'components/movie/PostForm';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function PageMoviePostForm() {
   const navigate = useNavigate();
 
+  const { postId } = useParams();
+
   return (
-    <div>
-      <h3>PageMoviePostForm</h3>
-    </div>
+    <PostForm
+      postId={postId}
+      handleDidSave={(savedPost) => navigate(`/movie/${savedPost.id}/`)}
+    />
   );
 }
 
