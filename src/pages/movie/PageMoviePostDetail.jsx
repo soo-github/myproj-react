@@ -1,4 +1,3 @@
-import DebugStates from 'components/DebugStates';
 import PostDetail from 'components/movie/PostDetail';
 import { useParams } from 'react-router-dom';
 

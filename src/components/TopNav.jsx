@@ -5,10 +5,10 @@ function TopNav() {
     <div className="my-3">
       <ul className="flex gap-4">
         <li>
-          <MyLink to="/accounts/login/">로그인</MyLink>
+          <MyLink to="/accounts/pagelogin/">로그인</MyLink>
         </li>
         <li>
-          <MyLink to="/accounts/profile/">프로필</MyLink>
+          <MyLink to="/accounts/pageprofile/">프로필</MyLink>
         </li>
         <li>
           <MyLink to="/reviews/">리뷰</MyLink>

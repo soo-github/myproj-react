@@ -1,6 +1,6 @@
 import TopNav from './components/TopNav';
-import Login from 'pages/accounts/Login';
-import Profile from 'pages/accounts/Profile';
+import PageLogin from 'pages/accounts/PageLogin';
+import PageProfile from 'pages/accounts/PageProfile';
 import ReviewList from 'pages/reviews/ReviewList';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -28,8 +28,8 @@ function App() {
         <TopNav />
         <Routes>
           <Route path="/" element={<Navigate to="/blog/" />} />
-          <Route path="/accounts/login/" element={<Login />} />
-          <Route path="/accounts/profile/" element={<Profile />} />
+          <Route path="/accounts/Pagelogin/" element={<PageLogin />} />
+          <Route path="/accounts/Pageprofile/" element={<PageProfile />} />
           <Route path="/blog/" element={<PageBlog />} />
 
           {/* ----------------------------------------------------------------- */}

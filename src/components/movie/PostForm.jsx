@@ -38,7 +38,6 @@ function PostForm({ postId, handleDidSave }) {
   }, [post]);
 
   const handleSubmit = (e) => {
-    console.log('submit');
     e.preventDefault();
 
     saveRequest({
@@ -84,7 +83,7 @@ function PostForm({ postId, handleDidSave }) {
             name="poster"
             onChange={handleFieldChange}
           />
-          {/* {saveErrorMessages.photo?.map((message, index) => (
+          {/* {saveErrorMessages.poster?.map((message, index) => (
             <p key={index} className="text-xs text-red-400">
               {message}
             </p>
@@ -98,7 +97,7 @@ function PostForm({ postId, handleDidSave }) {
             onChange={handleFieldChange}
             className="p-1 bg-gray-100 w-full h-80 outline-none focus:border focus:border-gray-400 focus:border-dashed"
           />
-          {/* {saveErrorMessages.content?.map((message, index) => (
+          {/* {saveErrorMessages.story?.map((message, index) => (
             <p key={index} className="text-xs text-red-400">
               {message}
             </p>

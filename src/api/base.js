@@ -26,7 +26,6 @@ function useApiAxios(config, options) {
       setErrorMessages({});
     }
   }, [error]);
-
   return [
     { data, loading, error, response, errorMessages },
     execute,
@@ -39,12 +38,14 @@ function useRequest(resourceUrl, initialState, manual = false) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [errorMessages, setErrorMessages] = useState({});
+
   // api 요청을 한 axios 인스턴스를 반환합니다. (Promise 객체)
   const request = useCallback(
     (method = 'GET', data) => {
       setLoading(true);
       setError(null);
       setErrorMessages({});
+
       return axiosInstance({
         method,
         url: resourceUrl,
@@ -68,9 +69,11 @@ function useRequest(resourceUrl, initialState, manual = false) {
     },
     [resourceUrl],
   );
+
   useEffect(() => {
     if (!manual) request();
   }, [manual]);
+
   return { data, loading, error, errorMessages, request };
 }
 
