@@ -1,26 +1,35 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import useAuth from 'hooks/useAuth';
 
 function TopNav() {
+  const [auth, , , logout] = useAuth();
+
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <div className="my-3">
-      <ul className="flex gap-4">
-        <li>
-          <MyLink to="/accounts/pagelogin/">로그인</MyLink>
-        </li>
-        <li>
-          <MyLink to="/accounts/pageprofile/">프로필</MyLink>
-        </li>
-        <li>
-          <MyLink to="/reviews/">리뷰</MyLink>
-        </li>
+      <div className="flex gap-4 ">
+        <MyLink to="/reviews/">리뷰</MyLink>
 
-        <li>
-          <MyLink to="/news/">뉴스</MyLink>
-        </li>
+        <MyLink to="/movie/">영화</MyLink>
 
-        <li>
-          <MyLink to="/movie/">영화</MyLink>
-        </li>
+        <MyLink to="/news/">뉴스</MyLink>
+        {!auth.isLoggedIn && (
+          <>
+            <MyLink to="/accounts/pagelogin/">로그인</MyLink>
+            <MyLink to="#">회원가입</MyLink>
+          </>
+        )}
+        {auth.isLoggedIn && (
+          <>
+            <MyLink to="/accounts/pageprofile/">프로필</MyLink>
+            <button onClick={handleLogout} className={baseClassName}>
+              로그아웃
+            </button>
+          </>
+        )}
 
         {/* <li>
           <MyLink to="/examples/components/">컴포넌트 예시</MyLink>
@@ -40,20 +49,24 @@ function TopNav() {
         <li>
           <MyLink to="/examples/context-api-2/">Context API #2</MyLink>
         </li> */}
-      </ul>
+      </div>
     </div>
   );
 }
 
 function MyLink({ to, children }) {
   return (
-    <Link
+    <NavLink
       to={to}
-      className="pb-1 text-gray-500 hover:text-red-500 hover:border-red-500 border-b-4"
+      className={({ isActive }) =>
+        baseClassName + ' ' + (isActive ? 'border-b-4 border-red-400' : '')
+      }
     >
       {children}
-    </Link>
+    </NavLink>
   );
 }
+const baseClassName =
+  'px-4 pt-3 pb-2 font-semibold hover:bg-red-200 hover:text-red-500 hover:text-white';
 
 export default TopNav;
