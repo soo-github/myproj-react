@@ -19,6 +19,7 @@ import PageNewsArticleForm from 'pages/news/PageNewsArticleForm';
 import PageMovieIndex from 'pages/movie/PageMovieIndex';
 import PageMoviePostDetail from 'pages/movie/PageMoviePostDetail';
 import PageMoviePostForm from 'pages/movie/PageMoviePostForm';
+import PageSignup from 'pages/accounts/PageSignup';
 
 function App() {
   const windowWidth = useWindowWidth();
@@ -28,8 +29,9 @@ function App() {
         <TopNav />
         <Routes>
           <Route path="/" element={<Navigate to="/blog/" />} />
-          <Route path="/accounts/Pagelogin/" element={<PageLogin />} />
-          <Route path="/accounts/Pageprofile/" element={<PageProfile />} />
+          <Route path="/accounts/pagelogin/" element={<PageLogin />} />
+          <Route path="/accounts/pageprofile/" element={<PageProfile />} />
+          <Route path="/accounts/pagesignup/" element={<PageSignup />} />
           <Route path="/blog/" element={<PageBlog />} />
 
           {/* ----------------------------------------------------------------- */}
