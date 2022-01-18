@@ -6,6 +6,7 @@ import useFieldValues from 'hooks/useFieldValues';
 import { useApiAxios } from 'api/base';
 import { useEffect } from 'react';
 import produce from 'immer';
+import useAuth from 'hooks/useAuth';
 
 const INIT_FIELD_VALUES = { title: '', content: '' };
 
@@ -13,11 +14,19 @@ const INIT_FIELD_VALUES = { title: '', content: '' };
 // articleId  : 수정
 
 function ArticleForm({ articleId, handleDidSave }) {
+  const [auth] = useAuth();
+
   // articleId 값이 있을 때만 조회
   // articleId => manual=false
   // !articleId => manual=true
   const [{ data: article, loading: getLoading, error: getError }] = useApiAxios(
-    `/news/api/articles/${articleId}/`,
+    {
+      url: `/news/api/articles/${articleId}/`,
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${auth.access}`,
+      },
+    },
     {
       manual: !articleId,
     },
@@ -36,6 +45,9 @@ function ArticleForm({ articleId, handleDidSave }) {
         ? '/news/api/articles/'
         : `/news/api/articles/${articleId}/`,
       method: !articleId ? 'POST' : 'PUT',
+      headers: {
+        Authorization: `Bearer ${auth.access}`,
+      },
     },
     { manual: true },
   );

@@ -2,12 +2,22 @@ import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useApiAxios } from 'api/base';
 import LoadingIndicator from 'components/LoadingIndicator';
+import useAuth from 'hooks/useAuth';
 
 function ArticleDetail({ articleId }) {
+  const [auth] = useAuth();
+
   const navigate = useNavigate();
 
   const [{ data: article, loading, error }, refetch] = useApiAxios(
-    `/news/api/articles/${articleId}/`,
+    {
+      url: `/news/api/articles/${articleId}/`,
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${auth.access}`,
+      },
+    },
+
     { manual: true },
   );
 
@@ -16,6 +26,9 @@ function ArticleDetail({ articleId }) {
       {
         url: `/news/api/articles/${articleId}/`,
         method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${auth.access}`,
+        },
       },
       { manual: true },
     );
