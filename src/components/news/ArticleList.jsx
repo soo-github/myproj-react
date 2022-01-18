@@ -13,7 +13,7 @@ function ArticleList() {
       method: 'GET',
       // 방법 2
       headers: {
-        Authorization: 'Bearer ${auth.access}',
+        Authorization: `Bearer ${auth.access}`,
       },
     },
     { manual: true },
