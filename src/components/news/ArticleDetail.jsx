@@ -7,7 +7,7 @@ import { useAuth } from 'contexts/AuthContext';
 
 function ArticleDetail({ articleId }) {
   // const [auth] = useAuth();
-  const { auth } = useAuth();
+  const [auth] = useAuth();
 
   const navigate = useNavigate();
 
