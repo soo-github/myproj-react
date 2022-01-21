@@ -3,11 +3,11 @@ import DebugStates from 'components/DebugStates';
 import { useEffect } from 'react';
 import ArticleSummary from './ArticleSummary';
 // import useAuth from 'hooks/useAuth';
-import { useAuthContext } from 'hooks/AuthContext';
+import { useAuth } from 'contexts/AuthContext';
 
 function ArticleList() {
   // const [auth] = useAuth();
-  const { auth } = useAuthContext();
+  const [auth] = useAuth();
 
   const [{ data: articleList, loading, error }, refetch] = useApiAxios(
     {

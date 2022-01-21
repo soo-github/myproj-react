@@ -1,4 +1,4 @@
-import useAuth from 'hooks/useAuth';
+import { useAuth } from 'contexts/AuthContext';
 import useFieldValues from 'hooks/useFieldValues';
 import Button from 'components/Button';
 import DebugStates from 'components/DebugStates';

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useApiAxios } from 'api/base';
 import Button from 'components/Button';
 // import useAuth from 'hooks/useAuth';
-import { useAuthContext } from 'hooks/AuthContext';
+import { useAuth } from 'contexts/AuthContext';
 
 const INIT_FIELD_VALUES = { username: '', password: '' };
 
@@ -14,7 +14,7 @@ function LoginForm() {
   const navigate = useNavigate();
 
   // const [auth, _, login] = useAuth();
-  const [auth, login] = useAuthContext();
+  const [auth, login] = useAuth();
 
   const [{ loading, error }, requestToken] = useApiAxios(
     {

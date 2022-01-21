@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 // import useAuth from 'hooks/useAuth';
-import { useAuthContext } from 'hooks/AuthContext';
+import { useAuth } from 'contexts/AuthContext';
 
 function TopNav() {
   // const [auth, , , logout] = useAuth();
-  const [auth, logout] = useAuthContext();
+  const [auth, logout] = useAuth();
 
   const handleLogout = () => {
     logout();

@@ -21,69 +21,56 @@ import PageMoviePostDetail from 'pages/movie/PageMoviePostDetail';
 import PageMoviePostForm from 'pages/movie/PageMoviePostForm';
 import PageSignup from 'pages/accounts/PageSignup';
 
-import { AuthContextProvider } from './hooks/AuthContext';
-
 function App() {
   const windowWidth = useWindowWidth();
   return (
     <>
-      <AuthContextProvider>
-        <div className="app">
-          <TopNav />
-          <Routes>
-            <Route path="/" element={<Navigate to="/blog/" />} />
-            <Route path="/accounts/pagelogin/" element={<PageLogin />} />
-            <Route path="/accounts/pageprofile/" element={<PageProfile />} />
-            <Route path="/accounts/pagesignup/" element={<PageSignup />} />
-            <Route path="/blog/" element={<PageBlog />} />
+      <div className="app">
+        <TopNav />
+        <Routes>
+          <Route path="/" element={<Navigate to="/blog/" />} />
+          <Route path="/accounts/pagelogin/" element={<PageLogin />} />
+          <Route path="/accounts/pageprofile/" element={<PageProfile />} />
+          <Route path="/accounts/pagesignup/" element={<PageSignup />} />
+          <Route path="/blog/" element={<PageBlog />} />
 
-            {/* ----------------------------------------------------------------- */}
+          {/* ----------------------------------------------------------------- */}
 
-            <Route path="/news/" element={<PageNewsIndex />} />
-            <Route path="/news/new/" element={<PageNewsArticleForm />} />
-            <Route
-              path="/news/:articleId/"
-              element={<PageNewsArticleDetail />}
-            />
-            <Route
-              path="/news/:articleId/edit/"
-              element={<PageNewsArticleForm />}
-            />
+          <Route path="/news/" element={<PageNewsIndex />} />
+          <Route path="/news/new/" element={<PageNewsArticleForm />} />
+          <Route path="/news/:articleId/" element={<PageNewsArticleDetail />} />
+          <Route
+            path="/news/:articleId/edit/"
+            element={<PageNewsArticleForm />}
+          />
 
-            {/* ----------------------------------------------------------------- */}
+          {/* ----------------------------------------------------------------- */}
 
-            <Route path="/reviews/" element={<ReviewList />} />
-            <Route path="/reviews/new/" element={<ReviewForm />} />
-            <Route path="/reviews/:reviewId/edit/" element={<ReviewForm />} />
-            <Route path="/examples/components/" element={<Components />} />
-            <Route path="/examples/css-module/" element={<CssModule />} />
-            <Route path="/examples/css-in-js/" element={<CssInJs />} />
-            <Route
-              path="/examples/context-api/"
-              element={<ContextApiSample />}
-            />
-            <Route
-              path="/examples/context-api-2/"
-              element={<ContextApiSample2 />}
-            />
+          <Route path="/reviews/" element={<ReviewList />} />
+          <Route path="/reviews/new/" element={<ReviewForm />} />
+          <Route path="/reviews/:reviewId/edit/" element={<ReviewForm />} />
+          <Route path="/examples/components/" element={<Components />} />
+          <Route path="/examples/css-module/" element={<CssModule />} />
+          <Route path="/examples/css-in-js/" element={<CssInJs />} />
+          <Route path="/examples/context-api/" element={<ContextApiSample />} />
+          <Route
+            path="/examples/context-api-2/"
+            element={<ContextApiSample2 />}
+          />
 
-            {/* ----------------------------------------------------------------- */}
+          {/* ----------------------------------------------------------------- */}
 
-            <Route path="/movie/" element={<PageMovieIndex />} />
-            <Route path="/movie/new/" element={<PageMoviePostForm />} />
-            <Route path="/movie/:postId/" element={<PageMoviePostDetail />} />
-            <Route
-              path="/movie/:postId/edit/"
-              element={<PageMoviePostForm />}
-            />
-          </Routes>
-          {/* <hr />
+          <Route path="/movie/" element={<PageMovieIndex />} />
+          <Route path="/movie/new/" element={<PageMoviePostForm />} />
+          <Route path="/movie/:postId/" element={<PageMoviePostDetail />} />
+          <Route path="/movie/:postId/edit/" element={<PageMoviePostForm />} />
+        </Routes>
+        {/* <hr />
         윈도우 가로크기: {windowWidth}px
         <Routes>
           <Route path="/examples/clock/" element={<Clock />} />
         </Routes> */}
-        </div>
-      </AuthContextProvider>
+      </div>
     </>
   );
 }

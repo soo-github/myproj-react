@@ -1,11 +1,12 @@
-import React, { createContext, useCallback, useContext } from 'react';
-import useLocalStorage from './useLocalStorage';
-
-const AuthContext = createContext();
+import { createContext, useCallback, useContext } from 'react';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const INITIAL_AUTH = { isLoggedIn: false };
 
-function AuthContextProvider({ children }) {
+const AuthContext = createContext();
+
+function AuthProvider({ children }) {
+  // 공유할 상탯값을 정의
   const [auth, setAuth] = useLocalStorage('auth', INITIAL_AUTH);
 
   const login = useCallback(
@@ -28,15 +29,17 @@ function AuthContextProvider({ children }) {
     });
   }, [setAuth]);
 
+  // 하위 컴포넌트에서 공유할 값/함수들을 value로 지정합니다.
+
   return (
-    <AuthContext.Provider value={{ auth, setAuth, login, logout }}>
+    <AuthContext.Provider value={[auth, setAuth, login, logout]}>
       {children}
     </AuthContext.Provider>
   );
 }
 
-function useAuthContext() {
+function useAuth() {
   return useContext(AuthContext);
 }
 
-export { AuthContextProvider, useAuthContext };
+export { AuthProvider, useAuth };
