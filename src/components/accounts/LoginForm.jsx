@@ -3,7 +3,8 @@ import useFieldValues from 'hooks/useFieldValues';
 import { useNavigate } from 'react-router-dom';
 import { useApiAxios } from 'api/base';
 import Button from 'components/Button';
-import useAuth from 'hooks/useAuth';
+// import useAuth from 'hooks/useAuth';
+import { useAuthContext } from 'hooks/AuthContext';
 
 const INIT_FIELD_VALUES = { username: '', password: '' };
 
@@ -12,7 +13,8 @@ const INITIAL_AUTH = { isLoggedIn: false };
 function LoginForm() {
   const navigate = useNavigate();
 
-  const [auth, _, login] = useAuth();
+  // const [auth, _, login] = useAuth();
+  const [auth, login] = useAuthContext();
 
   const [{ loading, error }, requestToken] = useApiAxios(
     {

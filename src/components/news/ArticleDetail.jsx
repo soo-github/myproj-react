@@ -2,10 +2,12 @@ import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useApiAxios } from 'api/base';
 import LoadingIndicator from 'components/LoadingIndicator';
-import useAuth from 'hooks/useAuth';
+// import useAuth from 'hooks/useAuth';
+import { useAuthContext } from 'hooks/AuthContext';
 
 function ArticleDetail({ articleId }) {
-  const [auth] = useAuth();
+  // const [auth] = useAuth();
+  const { auth } = useAuthContext();
 
   const navigate = useNavigate();
 
