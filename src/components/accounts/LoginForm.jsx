@@ -3,18 +3,14 @@ import useFieldValues from 'hooks/useFieldValues';
 import { useNavigate } from 'react-router-dom';
 import { useApiAxios } from 'api/base';
 import Button from 'components/Button';
-// import useAuth from 'hooks/useAuth';
 import { useAuth } from 'contexts/AuthContext';
 
-const INIT_FIELD_VALUES = { username: '', password: '' };
-
-const INITIAL_AUTH = { isLoggedIn: false };
+const INITIAL_FIELD_VALUES = { username: '', password: '' };
 
 function LoginForm() {
   const navigate = useNavigate();
 
-  // const [auth, _, login] = useAuth();
-  const [auth, login] = useAuth();
+  const [auth, _, login] = useAuth();
 
   const [{ loading, error }, requestToken] = useApiAxios(
     {
@@ -24,7 +20,8 @@ function LoginForm() {
     { manual: true },
   );
 
-  const { fieldValues, handleFieldChange } = useFieldValues(INIT_FIELD_VALUES);
+  const { fieldValues, handleFieldChange } =
+    useFieldValues(INITIAL_FIELD_VALUES);
 
   const handleSubmit = (e) => {
     e.preventDefault();
