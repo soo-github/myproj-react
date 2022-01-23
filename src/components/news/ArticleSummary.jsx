@@ -8,9 +8,11 @@ function ArticleSummary({ article }) {
       )}
       <div className="p-8 sm:p-9 md:p-7 xl:p-9">
         <h3>
-          <Link to={`/news/${article.id}/`}>{article.title}</Link>
-          <p>by {article.author.username}</p>
+          <Link to={`/news/${article.id}/`} className="font-semibold text-dark">
+            {article.title}
+          </Link>
         </h3>
+        <p>by {article.author.username}</p>
       </div>
     </div>
   );

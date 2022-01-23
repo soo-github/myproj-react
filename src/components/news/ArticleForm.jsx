@@ -127,7 +127,7 @@ function ArticleForm({ articleId, handleDidSave }) {
 
       {saveLoading && <LoadingIndicator>저장 중 ...</LoadingIndicator>}
       {saveError &&
-        `저장 중 에러가 발생했습니다. (${saveError.response.status} ${saveError.response.statusText})`}
+        `저장 중 에러가 발생했습니다. (${saveError.response?.status} ${saveError.response?.statusText})`}
 
       <form onSubmit={handleSubmit}>
         <div className="my-3">
